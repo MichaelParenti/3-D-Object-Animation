@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Practice</title>
+    <style>
+        body {
+            margin: 0px;
+            background: rgba(0, 0, 0, 1.0);
+        }
+        #main {
+            background: rgba(148, 148, 148, 0.1);
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            transform: translate(-50%, -50%) ;
+            left: 50%;
+            top: 500px;
+            animation: identifier ease infinite 1s;
+            animation-delay: 1s;
+        }
+        #main::after {
+            content: '';
+            background: rgba(192, 192, 192, 0.1);
+            width: 40px;
+            height: 100%;
+            position: absolute;
+            left: -20px;
+            top: 55px;
+            width: 40px;
+            transform: translate(-50%, -50%) skewy(45deg);
+        }
+        #main::before {
+            content: '';
+            background: rgba(238, 238, 238, 0.1);
+            width: 100%;
+            position: absolute;
+            top: -20px;
+            left: 55px;
+            height: 40px;
+            transform: translate(-50%, -50%) skewX(45deg);
+        }
+
+        @keyframes identifier {
+            0%{transform: translate(-50%, -50%);}
+            10%{transform: translate(-45%, -50%);}
+            20%{transform: translate(-40%, -50%);}
+            30%{transform: translate(-35%, -50%);}
+            40%{transform: translate(-30%, -50%);}
+            50%{transform: translate(-25%, -50%);}
+            60%{transform: translate(-30%, -50%);}
+            70%{transform: translate(-35%, -50%);}
+            80%{transform: translate(-40%, -50%);}
+            90%{transform: translate(-45%, -50%);}
+            100%{transform: translate(-50%, -50%);}
+        }
+
+        #circle{
+            background: radial-gradient(red, rgb(194, 0, 0), rgb(129, 1, 1), rgb(80, 1, 1));
+            width: 75px;
+            height: 75px;
+            border-radius:50%;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+            animation: jump infinite ease 500ms;
+        }
+
+        @keyframes jump{
+            0%{top: 360px;}
+            25%{top: 340px;}
+            50%{top: 330px;}
+            75%{top: 340px;}
+            100%{top: 360px;}
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <div id="circle"></div>
+</body>
+</html>
